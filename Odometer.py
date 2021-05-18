@@ -18,8 +18,6 @@ def odometer ( oksana ):
 
                 time = oksana[i] - oksana[i-2]
             
-            result = speed * time
-
-            distance += result
+            distance += speed * time
 
     return distance
