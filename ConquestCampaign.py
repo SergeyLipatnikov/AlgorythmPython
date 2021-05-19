@@ -1,6 +1,6 @@
 def ConquestCampaign (N, M, L, battalion):
 
-    day = 1
+    day = 0
 
     CheckBattalion = [battalion[0],battalion[1]]
 
@@ -35,20 +35,86 @@ def ConquestCampaign (N, M, L, battalion):
 
     while (CheckField != True):
 
-        if (day == 1):
+        if (day == 0):
 
             for i in range(1,len(CheckBattalion),2):
 
                 field[CheckBattalion[i-1]-1][CheckBattalion[i]-1] = 1                 
 
-    return CheckBattalion, field
+            day += 1
+        
+        else:
 
-print(ConquestCampaign(3,4,6,[2,2,3,4,1,3,3,4, 2,2,1,3]))
+            TempFieldBattalion = []
 
+            for i in range(N):
+                for j in range(M):
+                    if (field[i][j] == 1):
+                        TempFieldBattalion.append(i)
+                        TempFieldBattalion.append(j)
+            
+            if len(TempFieldBattalion) == N*M*2:
 
+                CheckField = True
 
+                break
 
-    # for i in range(N):
+            else:
 
-    #     for j in range(M):
+                for i in range(1,len(TempFieldBattalion),2):
+
+                    if TempFieldBattalion[i] == 0 and TempFieldBattalion[i-1] == 0:
+
+                        field[TempFieldBattalion[i - 1] + 1][TempFieldBattalion[i]] = 1
+                        field[TempFieldBattalion[i - 1]][TempFieldBattalion[i] + 1] = 1
+                    
+                    elif TempFieldBattalion[i] == 0 and TempFieldBattalion[i-1] == N-1:
+
+                        field[TempFieldBattalion[i - 1]][TempFieldBattalion[i] + 1] = 1
+                        field[TempFieldBattalion[i - 1] - 1][TempFieldBattalion[i]] = 1
+                    
+                    elif TempFieldBattalion[i] == M-1 and TempFieldBattalion[i-1] == 0:
+
+                        field[TempFieldBattalion[i - 1]][TempFieldBattalion[i] - 1] = 1
+                        field[TempFieldBattalion[i - 1] + 1][TempFieldBattalion[i]] = 1
+
+                    elif TempFieldBattalion[i] == M-1 and TempFieldBattalion[i-1] == N-1:
+
+                        field[TempFieldBattalion[i - 1]][TempFieldBattalion[i] - 1] = 1
+                        field[TempFieldBattalion[i - 1] - 1][TempFieldBattalion[i]] = 1
+                    
+                    elif TempFieldBattalion[i] == 0:
+
+                        field[TempFieldBattalion[i - 1] + 1][TempFieldBattalion[i]] = 1
+                        field[TempFieldBattalion[i - 1] - 1][TempFieldBattalion[i]] = 1
+                        field[TempFieldBattalion[i - 1]][TempFieldBattalion[i] + 1] = 1
+
+                    elif TempFieldBattalion[i] == M-1:
+
+                        field[TempFieldBattalion[i - 1] - 1][TempFieldBattalion[i]] = 1
+                        field[TempFieldBattalion[i - 1] + 1][TempFieldBattalion[i]] = 1
+                        field[TempFieldBattalion[i - 1]][TempFieldBattalion[i] - 1] = 1
+
+                    elif TempFieldBattalion[i-1] == 0:
+
+                        field[TempFieldBattalion[i - 1] + 1][TempFieldBattalion[i]] = 1
+                        field[TempFieldBattalion[i - 1]][TempFieldBattalion[i] + 1] = 1
+                        field[TempFieldBattalion[i - 1]][TempFieldBattalion[i] - 1] = 1
+
+                    elif TempFieldBattalion[i-1] == N-1:
+
+                        field[TempFieldBattalion[i - 1] - 1][TempFieldBattalion[i]] = 1
+                        field[TempFieldBattalion[i - 1]][TempFieldBattalion[i] + 1] = 1
+                        field[TempFieldBattalion[i - 1]][TempFieldBattalion[i] - 1] = 1
+
+                    else:
+
+                        field[TempFieldBattalion[i - 1] - 1][TempFieldBattalion[i]] = 1
+                        field[TempFieldBattalion[i - 1] + 1][TempFieldBattalion[i]] = 1 
+                        field[TempFieldBattalion[i - 1]][TempFieldBattalion[i] + 1] = 1 
+                        field[TempFieldBattalion[i - 1]][TempFieldBattalion[i] - 1] = 1
+
+            day += 1
+
+    return day
 
