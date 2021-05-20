@@ -2,31 +2,24 @@ def MadMax(N, Tele):
 
     Tele.sort()
 
-    SortTele = Tele
+    Final = []
 
-    Max = max(SortTele)
+    Max = max(Tele)
 
-    temp = SortTele[N//2]
+    temp = Tele[N//2]
 
-    SortTele[N//2] = Max
+    Tele[N//2] = Max
 
-    SortTele[N-1] = temp
+    Tele[N-1] = temp
 
-    Forward = SortTele[0 : N//2+1]
+    Forward = Tele[0 : N//2+1]
 
-    Reverse = SortTele[N//2+1 : N-1]
+    Reverse = Tele[N//2+1 : N-1]
 
     Reverse.reverse()
 
-    Final = Forward
-
+    Final.extend(Forward)
     Final.extend(Reverse)
-
-    Final.append(SortTele[N-1])
+    Final.append(Tele[N-1])
 
     return Final
-     
-
-    
-
-print(MadMax(7,[120,1,35,48,243,187,16]))
