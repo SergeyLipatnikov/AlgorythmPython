@@ -19,7 +19,11 @@ def MadMax(N, Tele):
     Reverse.reverse()
 
     Final.extend(Forward)
+
     Final.extend(Reverse)
-    Final.append(Tele[N-1])
+
+    if len(Tele) > 1:
+
+        Final.append(Tele[N-1])
 
     return Final
