@@ -1,25 +1,23 @@
 def WordSearch(lens, s, subs):
 
     FinalString = []
-    String = list(s)
-    StartStr = []
-    Startsubspos = 0
-    Subsstr_len = lens
     s2 = ''
+    SEPARATORS= " "
 
-    for i in range(len(String)):
-        
-        if String[i] == ' ': #and len(s2) > 6:
-            s2.join(String[Startsubspos : i])
+    for char in s:
+        if char in SEPARATORS:
+            if s2: FinalString.append(s2)
+            s2=''
+        else:
+            s2+=char
+    
+    for i in range(len(FinalString)):
 
-            FinalString.append(s2)
+        if len(FinalString[i]) < 6:
 
-            Startsubspos = i+1
-
-            s2 = '' 
+            FinalString[i].join(FinalString[i+1])
 
 
-        
     return FinalString
 
 print(WordSearch(12, 'строка разбивается на набор строк через выравнивание по заданной ширине', 'строка'))
