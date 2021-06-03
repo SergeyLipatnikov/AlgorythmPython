@@ -2,14 +2,23 @@ def WordSearch(lens, s, subs):
 
     FinalString = []
     s2 = ''
-    SEPARATORS= " "
+    SEPARATORS= " \n"
 
-    for char in s:
-        if char in SEPARATORS:
-            if s2: FinalString.append(s2)
-            s2=''
-        else:
-            s2+=char
+    if len(s) > 0 and s[0] != ' ':
+        word_count = 1
+        for i in range(len(s)-1):
+
+            # пары символов "пробел+следующий не пробел" считаем как слово
+            if s[i] == ' ' and s[i+1] != ' ':
+                
+                word_count += 1
+
+    for i in range(len(s)-1):
+
+        # пары символов "пробел+следующий не пробел" считаем как слово
+        if s[i] == ' ' and s[i+1] != ' ':
+            
+            word_count += 1
     
     for i in range(len(FinalString)):
 
