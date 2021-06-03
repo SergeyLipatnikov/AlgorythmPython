@@ -1,31 +1,47 @@
 def WordSearch(lens, s, subs):
 
     FinalString = []
-    s2 = ''
-    SEPARATORS= " \n"
+    Startpos = 0
+    Endpos = 0
+    count = 0
 
-    if len(s) > 0 and s[0] != ' ':
-        word_count = 1
-        for i in range(len(s)-1):
+    for i in s:
 
-            # пары символов "пробел+следующий не пробел" считаем как слово
-            if s[i] == ' ' and s[i+1] != ' ':
-                
-                word_count += 1
+        if count == len(s) - 1:
 
-    for i in range(len(s)-1):
+            FinalString.append(s[Startpos:count+1])
 
-        # пары символов "пробел+следующий не пробел" считаем как слово
-        if s[i] == ' ' and s[i+1] != ' ':
-            
-            word_count += 1
+        else:
+
+            if i == ' ':
+
+                Endpos += s[Startpos:].index(i)
+
+                FinalString.append(s[Startpos:Endpos])
+
+                Startpos = count + 1
+
+                Endpos += 1
+        
+        count += 1
+
+    j= 0 
     
-    for i in range(len(FinalString)):
+    while j < len(FinalString):
 
-        if len(FinalString[i]) < 6:
+        if len(FinalString[j]) < lens//2:
 
-            FinalString[i].join(FinalString[i+1])
+            temp = FinalString[j]
 
+            FinalString[j] = ' '
+            
+            temp = temp + ' ' + FinalString[j+1]
+            
+            FinalString[j] = temp
+
+            j += 1
+
+        j += 1
 
     return FinalString
 
