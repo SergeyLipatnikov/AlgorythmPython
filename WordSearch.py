@@ -1,6 +1,7 @@
 def WordSearch(lens, s, subs):
 
     FinalString = []
+    Temp = []
     Startpos = 0
     Endpos = 0
     count = 0
@@ -13,35 +14,59 @@ def WordSearch(lens, s, subs):
 
         else:
 
-            if i == ' ':
+            Temp.append(s[Startpos::lens])
 
-                Endpos += s[Startpos:].index(i)
+            for j in Temp:
 
-                FinalString.append(s[Startpos:Endpos])
+                if j == ' ':
 
-                Startpos = count + 1
+                    Endpos += s[Startpos:].index(i)
 
-                Endpos += 1
+                    FinalString.append(s[Startpos:Endpos])
+
+                    Startpos = count + 1
+
+                    Endpos += 1
         
         count += 1
 
-    j= 0 
+    # for i in s:
+
+    #     if count == len(s) - 1:
+
+    #         FinalString.append(s[Startpos:count+1])
+
+    #     else:
+
+    #         if i == ' ':
+
+    #             Endpos += s[Startpos:].index(i)
+
+    #             FinalString.append(s[Startpos:Endpos])
+
+    #             Startpos = count + 1
+
+    #             Endpos += 1
+        
+    #     count += 1
+
+    # j= 0 
     
-    while j < len(FinalString):
+    # while j < len(FinalString):
 
-        if len(FinalString[j]) < lens//2:
+    #     if len(FinalString[j]) < lens//2:
 
-            temp = FinalString[j]
+    #         temp = FinalString[j]
 
-            FinalString[j] = ' '
+    #         FinalString[j] = ' '
             
-            temp = temp + ' ' + FinalString[j+1]
+    #         temp = temp + ' ' + FinalString[j+1]
             
-            FinalString[j] = temp
+    #         FinalString[j] = temp
 
-            j += 1
+    #         j += 1
 
-        j += 1
+    #     j += 1
 
     return FinalString
 
