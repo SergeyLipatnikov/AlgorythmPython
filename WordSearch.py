@@ -1,73 +1,85 @@
 def WordSearch(lens, s, subs):
 
     FinalString = []
-    Temp = []
+    Temp = ''
     Startpos = 0
-    Endpos = 0
-    count = 0
+    Endpos = lens
+    sublenght = len(s)//(lens//2)
+    Result =[]
 
-    for i in s:
+    for i in range(sublenght):
 
-        if count == len(s) - 1:
+        Temp += s[Startpos:Endpos]
 
-            FinalString.append(s[Startpos:count+1])
+        if Endpos >= len(s):
 
-        else:
+            FinalString.append(s[Startpos:Endpos])
 
-            Temp.append(s[Startpos::lens])
+            break
+                
+        for j in range(len(Temp)):
 
-            for j in Temp:
+            if Temp[j] == ' ':
 
-                if j == ' ':
+                if j < lens//2:
 
-                    Endpos += s[Startpos:].index(i)
+                    continue
 
-                    FinalString.append(s[Startpos:Endpos])
+                SubEndpos = j
 
-                    Startpos = count + 1
+                FinalString.append(Temp[:SubEndpos])
 
-                    Endpos += 1
-        
-        count += 1
+                Temp = ''
 
-    # for i in s:
+                Startpos += SubEndpos + 1
+                
+                Endpos += SubEndpos + 1
 
-    #     if count == len(s) - 1:
+                break
 
-    #         FinalString.append(s[Startpos:count+1])
+            elif j == len(Temp) -1:
 
-    #     else:
+                FinalString.append(Temp.lstrip())
 
-    #         if i == ' ':
+                Startpos += lens 
+                
+                Endpos += lens 
 
-    #             Endpos += s[Startpos:].index(i)
+                Temp = ''
+    i = 0
 
-    #             FinalString.append(s[Startpos:Endpos])
-
-    #             Startpos = count + 1
-
-    #             Endpos += 1
-        
-    #     count += 1
-
-    # j= 0 
+    j = 0
     
-    # while j < len(FinalString):
+    for k in range(len(FinalString)):
 
-    #     if len(FinalString[j]) < lens//2:
+        if len(FinalString[k] == len(subs)):
 
-    #         temp = FinalString[j]
+            print('kek')
 
-    #         FinalString[j] = ' '
-            
-    #         temp = temp + ' ' + FinalString[j+1]
-            
-    #         FinalString[j] = temp
+        elif FinalString[k].isspace():
 
-    #         j += 1
+            count = FinalString[k].index(' ')
 
-    #     j += 1
+            Temp = FinalString[k][:count]
 
-    return FinalString
+            for i in range(len(Temp) - len(subs) + 1):
 
-print(WordSearch(12, 'строка разбивается на набор строк через выравнивание по заданной ширине', 'строка'))
+                char = True
+
+                for j in range(len(subs) - 1, -1, -1):
+
+                    if FinalString[k][i + j] != subs[j]:
+
+                        char = False
+
+                        break
+
+                if char is True:
+
+                    Result.append(True)
+
+        Result.append(False)
+
+    return FinalString, Result
+
+print(WordSearch(12, 'строка разбивается на набор строк через выравнивание по заданной ширине rtr kek privetik', 'строк'))
