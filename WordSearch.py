@@ -60,7 +60,7 @@ def WordSearch(lens, s, subs):
 
             if Temp == subs:
 
-                Result.append(True)
+                Result.append(1)
 
             else:
 
@@ -68,15 +68,15 @@ def WordSearch(lens, s, subs):
 
                 if Temp == subs:
 
-                    Result.append(True)
+                    Result.append(1)
 
                 else:
 
-                    Result.append(False)                
+                    Result.append(0)                
         
         elif len(FinalString[k]) != len(subs):
 
-            Result.append(False)
+            Result.append(0)
 
         else:
 
@@ -84,11 +84,13 @@ def WordSearch(lens, s, subs):
 
             if Temp == subs:
 
-                Result.append(True)
+                Result.append(1)
 
             else:
 
-                Result.append(False)  
+                Result.append(0)  
 
 
-    return FinalString, Result
+    return Result
+
+print(WordSearch(12, 'строка разбивается на набор строк через выравнивание по заданной ширине', 'строк'))
