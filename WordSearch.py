@@ -46,10 +46,7 @@ def WordSearch(lens, s, subs):
                 Endpos += lens 
 
                 Temp = ''
-    i = 0
 
-    j = 0
-    
     for k in range(len(FinalString)):
 
         if FinalString[k].find(' ') > - 1:
@@ -90,7 +87,4 @@ def WordSearch(lens, s, subs):
 
                 Result.append(0)  
 
-
     return Result
-
-print(WordSearch(12, 'строка разбивается на набор строк через выравнивание по заданной ширине', 'строк'))
