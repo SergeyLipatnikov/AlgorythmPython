@@ -52,34 +52,43 @@ def WordSearch(lens, s, subs):
     
     for k in range(len(FinalString)):
 
-        if len(FinalString[k] == len(subs)):
-
-            print('kek')
-
-        elif FinalString[k].isspace():
+        if FinalString[k].find(' ') > - 1:
 
             count = FinalString[k].index(' ')
 
             Temp = FinalString[k][:count]
 
-            for i in range(len(Temp) - len(subs) + 1):
+            if Temp == subs:
 
-                char = True
+                Result.append(True)
 
-                for j in range(len(subs) - 1, -1, -1):
+            else:
 
-                    if FinalString[k][i + j] != subs[j]:
+                Temp = FinalString[k][count + 1:]
 
-                        char = False
-
-                        break
-
-                if char is True:
+                if Temp == subs:
 
                     Result.append(True)
 
-        Result.append(False)
+                else:
+
+                    Result.append(False)                
+        
+        elif len(FinalString[k]) != len(subs):
+
+            Result.append(False)
+
+        else:
+
+            Temp = FinalString[k]
+
+            if Temp == subs:
+
+                Result.append(True)
+
+            else:
+
+                Result.append(False)  
+
 
     return FinalString, Result
-
-print(WordSearch(12, 'строка разбивается на набор строк через выравнивание по заданной ширине rtr kek privetik', 'строк'))
