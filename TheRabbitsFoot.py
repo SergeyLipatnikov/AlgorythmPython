@@ -51,8 +51,14 @@ def TheRabbitsFoot(s, encode):
                     continue
 
                 Substring += FinalList[k][j]
-                                  
-            FinalString += Substring + ' '
+
+            if j == max - 1:
+
+                FinalString += Substring
+
+            else:
+                                      
+                FinalString += Substring + ' '
 
             Substring = ''
 
