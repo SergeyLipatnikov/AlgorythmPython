@@ -141,5 +141,3 @@ def TheRabbitsFoot(s, encode):
             FinalString += FinalList[j]
 
     return FinalString
-
-print(TheRabbitsFoot('омоюу толл дюиа акчп йрьк',  False))
