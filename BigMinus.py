@@ -4,4 +4,10 @@ def BigMinus(s1,s2):
 
     Second = int(s2)
 
-    return str(abs(First - Second))
+    ABS = str(abs(First - Second))
+    
+    return type(ABS), ABS
+    
+    
+
+print(BigMinus("999999", "1457932156479852"))
