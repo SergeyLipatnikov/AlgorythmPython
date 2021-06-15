@@ -6,8 +6,5 @@ def BigMinus(s1,s2):
 
     ABS = str(abs(First - Second))
     
-    return type(ABS), ABS
+    return  ABS
     
-    
-
-print(BigMinus("999999", "1457932156479852"))
