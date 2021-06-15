@@ -5,5 +5,3 @@ def BigMinus(s1,s2):
     Second = int(s2)
 
     return str(abs(First - Second))
-
-print(BigMinus('9','9999999999999999'))
