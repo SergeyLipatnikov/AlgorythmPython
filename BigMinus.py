@@ -10,25 +10,27 @@ def BigMinus(s1,s2):
             a2=s1
     else:
         if (l1 > l2):
-            a1=s1
+            a1=s1[l1-l2:l1]
             a2=s2
+            res = s1[:l1-l2]
         else:
-            a1=s2
+            a1=s2[l2-l1:l2]
             a2=s1
+            res = s2[:l2-l1]
  
     l1=len(a1)
     l2=len(a2)
     i1=l1-1
     i2=l2-1
-    res=""
+    subres=""
     b=0
     while(True):
-        if ((i1<0) & (i2<0)):
+        if ((i1<0) | (i2<0)):
             break
         if (i1<0):
             q2=int(a2[i2])-b
             q2=a2%10
-            res=str(q2)+res
+            subres=str(q2)+subres
             i2-=1
             if (i2<0):
                 break
@@ -36,13 +38,15 @@ def BigMinus(s1,s2):
         q2=int(a2[i2])
         q=q1-b-q2
         if (q>=0):
-            res=str(q)+res
+            subres=str(q)+subres
             b=0
         else:
             q+=10
             b=1
-            res=str(q)+res
+            subres=str(q)+subres
         i1-=1
         i2-=1
+    
+    res += subres
         
     return res
