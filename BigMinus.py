@@ -2,7 +2,7 @@ def BigMinus(s1,s2):
     l1=len(s1)
     l2=len(s2)
     if (l1==l2):
-        if s1[0]>s2[0]:
+        if s1>s2:
             a1=s1
             a2=s2
             res = ""
@@ -49,5 +49,19 @@ def BigMinus(s1,s2):
         i2-=1
     
     res += subres
+
+    result = ''
+
+    for i in range(len(res)):
+
+        if res[i] != '0':
+
+            result += res[i:]
+
+            break 
+
+    if result == '':
+
+        result += '0'
         
-    return res
+    return result
