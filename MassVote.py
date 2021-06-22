@@ -12,7 +12,7 @@ def MassVote(N, Votes):
 
         SummVotes += Votes[i]
 
-    if Votes[N-1] == Votes[N-2] or len(Votes) == 1:
+    if Votes[N-1] == Votes[N-2] and len(Votes) != 1:
 
         return "no winner"
 
