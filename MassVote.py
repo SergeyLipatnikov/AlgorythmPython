@@ -33,7 +33,3 @@ def MassVote(N, Votes):
                 if Votes[N-1] == Values:
 
                     return "minority winner " + str(Number)
-
-        
-
-print(MassVote(4, [1, 0, 1, 1]))
