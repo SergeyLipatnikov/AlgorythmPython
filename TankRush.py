@@ -34,7 +34,13 @@ def Tankrush(H1,W1,S1,H2,W2,S2):
 
                         j += 1
 
-                        break
+                        if result == H2:
+
+                            return True
+
+                        else:
+
+                            return False
 
                     else:
 
