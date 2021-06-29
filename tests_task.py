@@ -43,6 +43,19 @@ class TestTasks(unittest.TestCase):
 
         self.assertTrue(Tankrush(H1,W1,S1,H2,W2,S2))
 
+    def test_zero(self):
+        H1 = 1
+        W1 = 1
+        S1 = '0'
+        H2 = 1
+        W2 = 1
+        S2 = '0'
+
+        self.assertTrue(Tankrush(H1,W1,S1,H2,W2,S2))
+
+    def test_0(self):
+        self.assertTrue(Tankrush(3, 4, '1234 2345 0987', 2, 2, '34 98'))
+
 
 
 if __name__ == '__main__':
