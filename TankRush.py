@@ -8,15 +8,17 @@ def TankRush(H1,W1,S1,H2,W2,S2):
 
     i,j = 0,0
 
+    first = 0
+
     while i < H2:
 
         while j < H1:
 
-            for k in range(len(pole[j]) - len(tanks[i]) + 1):
+            for k in range(W1 - W2 + 1):
 
                 char = True
 
-                for n in range(len(tanks[i]) - 1, -1, -1):
+                for n in range(W2-1, -1, -1):
 
                     if pole[j][k + n] != tanks[i][n]:
 
@@ -25,6 +27,8 @@ def TankRush(H1,W1,S1,H2,W2,S2):
                         break
 
                 if char is True:
+
+                    first = k
 
                     if i == H2-1:
 
@@ -44,25 +48,28 @@ def TankRush(H1,W1,S1,H2,W2,S2):
 
                     else:
 
-                        for k in range(len(pole[j+1]) - len(tanks[i+1]) + 1):
+                        char = True
 
-                            char = True
+                        for n in range(W2-1, -1, -1):
 
-                            for n in range(len(tanks[i+1]) - 1, -1, -1):
+                            if pole[j+1][first+W2-1] != tanks[i+1][n]:
 
-                                if pole[j+1][k + n] != tanks[i+1][n]:
+                                char = False
 
-                                    char = False
-
-                                    break
-
-                            if char is True:
-
-                                result += 1
-
-                                i += 1
+                                first = 0
 
                                 break
+
+                            first -= 1
+
+                        if char is True:
+
+                            result += 1
+
+                            i += 1
+
+                            break
+
                         
             j += 1
         

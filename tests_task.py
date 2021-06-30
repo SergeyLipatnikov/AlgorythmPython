@@ -53,8 +53,16 @@ class TestTasks(unittest.TestCase):
 
         self.assertTrue(TankRush(H1,W1,S1,H2,W2,S2))
 
-    def test_0(self):
-        self.assertTrue(TankRush(3, 4, '1234 2345 0987', 2, 2, '34 98'))
+    def test_False(self):
+        H1 = 3
+        W1 = 3
+        S1 = '321 694 798'
+        H2 = 2
+        W2 = 2
+        S2 = '69 98'
+
+        self.assertFalse(TankRush(H1,W1,S1,H2,W2,S2))
+        
 
 
 
