@@ -1,5 +1,5 @@
 import unittest
-from TankRush import Tankrush
+from TankRush import TankRush
 
 class TestTasks(unittest.TestCase):
 
@@ -11,7 +11,7 @@ class TestTasks(unittest.TestCase):
         W2 = 2
         S2 = '34 98'
 
-        self.assertTrue(Tankrush(H1,W1,S1,H2,W2,S2))
+        self.assertTrue(TankRush(H1,W1,S1,H2,W2,S2))
 
     def test_right2(self):
         H1 = 3
@@ -21,7 +21,7 @@ class TestTasks(unittest.TestCase):
         W2 = 2
         S2 = '23 34 98'
 
-        self.assertTrue(Tankrush(H1,W1,S1,H2,W2,S2))
+        self.assertTrue(TankRush(H1,W1,S1,H2,W2,S2))
 
     def test_right3(self):
         H1 = 3
@@ -31,7 +31,7 @@ class TestTasks(unittest.TestCase):
         W2 = 2
         S2 = '23 34 96'
 
-        self.assertFalse(Tankrush(H1,W1,S1,H2,W2,S2))
+        self.assertFalse(TankRush(H1,W1,S1,H2,W2,S2))
 
     def test_right4(self):
         H1 = 3
@@ -41,7 +41,7 @@ class TestTasks(unittest.TestCase):
         W2 = 2
         S2 = '23 34'
 
-        self.assertTrue(Tankrush(H1,W1,S1,H2,W2,S2))
+        self.assertTrue(TankRush(H1,W1,S1,H2,W2,S2))
 
     def test_zero(self):
         H1 = 1
@@ -51,10 +51,10 @@ class TestTasks(unittest.TestCase):
         W2 = 1
         S2 = '0'
 
-        self.assertTrue(Tankrush(H1,W1,S1,H2,W2,S2))
+        self.assertTrue(TankRush(H1,W1,S1,H2,W2,S2))
 
     def test_0(self):
-        self.assertTrue(Tankrush(3, 4, '1234 2345 0987', 2, 2, '34 98'))
+        self.assertTrue(TankRush(3, 4, '1234 2345 0987', 2, 2, '34 98'))
 
 
 

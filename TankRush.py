@@ -1,4 +1,4 @@
-def Tankrush(H1,W1,S1,H2,W2,S2):
+def TankRush(H1,W1,S1,H2,W2,S2):
 
     pole = S1.split()
 
