@@ -1,5 +1,6 @@
 import unittest
 from TankRush import TankRush
+from MaximumDiscount import MaximumDiscount
 
 class TestTasks(unittest.TestCase):
 
@@ -62,8 +63,33 @@ class TestTasks(unittest.TestCase):
         S2 = '69 98'
 
         self.assertFalse(TankRush(H1,W1,S1,H2,W2,S2))
-        
+            
+    def test_A(self):
+        N = 3
+        price = [400,300,250]
+        self.assertEqual(MaximumDiscount(N,price),250)
 
+    def test_B(self):
+        N = 7
+        price = [100,150,400,200,250,300,350]
+        self.assertEqual(MaximumDiscount(N,price),450)
+    
+    def test_C(self):
+        N = 2
+        price = [1000,400]
+        self.assertEqual(MaximumDiscount(N,price),0)
+        
+    def test_D(self):
+        N = 7
+        price = [200,200,200,100,100,100,100]
+        self.assertEqual(MaximumDiscount(N,price),300)
+        
+    def test_E(self):
+        N = 5
+        price = [400,300,300,300,300]
+        self.assertEqual(MaximumDiscount(N,price),300)
+        
+            
 
 
 if __name__ == '__main__':
