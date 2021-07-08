@@ -42,9 +42,11 @@ def LineAnalysis(line):
 
         char = True
         
-        for j in range(Number - 1,len(line),Number-1):
+        for j in range(Number - 1,len(line),Number - 1):
 
-            if line[j - Number:j] != string:
+            temp = line[j + 1 - Number:j+1]
+
+            if temp != string:
 
                 char = False
 
@@ -57,5 +59,3 @@ def LineAnalysis(line):
         else:
 
             return False
-
-print(LineAnalysis('*..*..*..*..*..*..*'))
