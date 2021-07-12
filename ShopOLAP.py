@@ -18,10 +18,14 @@ def ShopOLAP(N,items):
 
     UniqValues = list(set(lists.values()))
 
-    sorted_keys = sorted(lists, key=UniqValues.sort(reverse=True))
+    UniqValues.sort(reverse=True)
+
+    sorted_keys = sorted(lists, key=lambda x:x[1], reverse=True)
 
     for w in sorted_keys:
 
         FinalList.append(w + ' ' + str(lists[w]))
 
-    return FinalList
+    return FinalList, UniqValues, sorted_keys
+
+print(ShopOLAP(5,['dress1 5','handbug32 3','dress2 3','handbug23 2','handbug128 4']))
