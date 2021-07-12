@@ -16,12 +16,12 @@ def ShopOLAP(N,items):
 
             lists.update({temp[0]: int(temp[1])})
 
-    list_keys = list(lists.keys())
+    UniqValues = list(set(lists.values()))
 
-    list_keys.sort()
+    sorted_keys = sorted(lists, key=UniqValues.sort(reverse=True))
 
-    for i in list_keys:
+    for w in sorted_keys:
 
-        FinalList.append(i+ ' ' + str(lists[i]))
+        FinalList.append(w + ' ' + str(lists[w]))
 
     return FinalList
