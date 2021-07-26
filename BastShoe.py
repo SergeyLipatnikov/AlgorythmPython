@@ -6,7 +6,7 @@ class BastSHoes:
 
     def check_command(self, command):
 
-        if (command[0] != '[1-5]'):
+        if (command[0] != '1' and command[0] != '2' and command[0] != '3' and command[0] != '4' and command[0] != '5'):
 
             return BastSHoes.__tempString
 
