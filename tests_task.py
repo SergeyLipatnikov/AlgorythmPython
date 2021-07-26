@@ -1,6 +1,7 @@
 import unittest
 from TankRush import TankRush
 from MaximumDiscount import MaximumDiscount
+from BastShoe import BastSHoe
 
 class TestTasks(unittest.TestCase):
 
@@ -88,9 +89,6 @@ class TestTasks(unittest.TestCase):
         N = 5
         price = [400,300,300,300,300]
         self.assertEqual(MaximumDiscount(N,price),300)
-        
-            
-
 
 if __name__ == '__main__':
     unittest.main()
