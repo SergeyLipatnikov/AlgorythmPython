@@ -108,15 +108,6 @@ class BastSHoes:
 
         return self.__Final_Operations[BastSHoes.__count]
 
-    def ReturnCounter(self):
-
-        return BastSHoes.__count
-
-    def ReturnFinal_Operations(self):
-
-        return BastSHoes.__Final_Operations
-
-
 
 def BastSHoe(command):
 
@@ -124,34 +115,4 @@ def BastSHoe(command):
 
     return String.check_command(command)
 
-print(BastSHoe('1 Привет'))
-print(BastSHoe('1 , Мир!'))
-print(BastSHoe('1 ++'))
-print(BastSHoe('2 2'))
-print(BastSHoe('4'))
-print(BastSHoe('4'))
-print(BastSHoe('1 *'))
-print(BastSHoe('4'))
-print(BastSHoe('4'))
-print(BastSHoe('4'))
-print(BastSHoe('3 6'))
-print(BastSHoe('2 100'))
-print(BastSHoe('1 Привет'))
-print(BastSHoe('1 , Мир!'))
-print(BastSHoe('1 ++'))
-print(BastSHoe('4'))
-print(BastSHoe('4'))
-print(BastSHoe('5'))
-print(BastSHoe('4'))
-print(BastSHoe('5'))
-print(BastSHoe('5'))
-print(BastSHoe('5'))
-print(BastSHoe('5'))
-print(BastSHoe('4'))
-print(BastSHoe('4'))
-print(BastSHoe('2 2'))
-print(BastSHoe('4'))
-print(BastSHoe('5'))
-print(BastSHoe('5'))
-print(BastSHoe('5'))
 
