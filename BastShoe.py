@@ -6,7 +6,11 @@ class BastSHoes:
 
     def check_command(self, command):
 
-        if (int(command[0]) == 1 or int(command[0]) == 2) and (BastSHoes.__lastOperation == 4 or BastSHoes.__lastOperation == 5):
+        if (command[0] != '[1-5]'):
+
+            return BastSHoes.__tempString
+
+        elif (int(command[0]) == 1 or int(command[0]) == 2) and (BastSHoes.__lastOperation == 4 or BastSHoes.__lastOperation == 5):
 
             temp = BastSHoes.__tempString
 
@@ -35,6 +39,7 @@ class BastSHoes:
         elif int(command[0]) == 5:
 
             return self.Redo()
+
 
     def append_string(self,S):
 
@@ -109,10 +114,8 @@ class BastSHoes:
         return self.__Final_Operations[BastSHoes.__count]
 
 
-def BastSHoe(command):
+def BastShoe(command):
 
     String = BastSHoes()
 
     return String.check_command(command)
-
-
