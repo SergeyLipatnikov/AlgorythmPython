@@ -54,7 +54,7 @@ def TreeOfLife(H, W, N, tree):
         
         FinalTree.append(String)
 
-    return StartTree, FinalTree
+    return FinalTree
 
 def CheckKill(H, W, Tree):
 
@@ -120,5 +120,3 @@ def CheckKill(H, W, Tree):
                 Tree[m][s] = 0
 
     return Tree
-
-print(TreeOfLife(3,4, 12, [".+..","..+.",".+.."]))
