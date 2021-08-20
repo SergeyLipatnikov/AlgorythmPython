@@ -1,23 +1,29 @@
 def TransformTransform(A,N):
 
-    return Transform(A,N)
+    k = 0
 
-    # if k % 2 == 0:
+    Massive = Transform(Transform(A,N),len(Transform(A,N)))
 
-    #     return True
+    for i in range(len(Massive)):
 
-    # else:
+        k += Massive[i]
 
-    #     return True
+    if k % 2 == 0:
+
+        return True
+
+    else:
+
+        return False
 
 
 def Transform(Array, N):
 
     B = []
+    
+    for i in range(N):
 
-    for i in range(N-1):
-
-        for j in range(N-1-i):
+        for j in range(N-i):
 
             k=i+j
 
@@ -27,12 +33,12 @@ def Transform(Array, N):
 
             else:
 
-                Temp = Array[j:k].sort()
+                Temp = Array[j:k+1]
 
-                print(Temp)
+                Temp.sort()
 
-                B.append(Array[len(Array[j:k])-1])
+                B.append(Temp[len(Temp)-1])
 
     return B
 
-print(TransformTransform([3,2,5,4,8,7],6))
+print(TransformTransform([2,3,4,9,8,3],6))
