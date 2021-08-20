@@ -20,7 +20,7 @@ def TransformTransform(A,N):
 def Transform(Array, N):
 
     B = []
-    
+
     for i in range(N):
 
         for j in range(N-i):
@@ -40,5 +40,3 @@ def Transform(Array, N):
                 B.append(Temp[len(Temp)-1])
 
     return B
-
-print(TransformTransform([2,3,4,9,8,3],6))
