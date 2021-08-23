@@ -1,7 +1,7 @@
 import unittest
 from TankRush import TankRush
 from MaximumDiscount import MaximumDiscount
-from BastShoe import BastSHoe
+from white_walkers import white_walkers
 
 class TestTasks(unittest.TestCase):
 
@@ -89,6 +89,26 @@ class TestTasks(unittest.TestCase):
         N = 5
         price = [400,300,300,300,300]
         self.assertEqual(MaximumDiscount(N,price),300)
+
+    def test_StringA(self):
+        String = "axxb6===4xaf5===eee5"
+        self.assertTrue(white_walkers(String))
+
+    def test_StringB(self):
+        String = "5==ooooooo=5=5"
+        self.assertFalse(white_walkers(String))
+
+    def test_StringC(self):
+        String = "abc=7==hdjs=3gg1=======5"
+        self.assertTrue(white_walkers(String))
+
+    def test_StringD(self):
+        String = "aaS=8"
+        self.assertFalse(white_walkers(String))
+
+    def test_StringE(self):
+        String = "9===1===9===1===9"
+        self.assertTrue(white_walkers(String))
 
 if __name__ == '__main__':
     unittest.main()
