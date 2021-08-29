@@ -4,7 +4,15 @@ def Football(F,N):
     
     F.sort()
 
-    return method2(Check,F,N)
+    if method1(Check,F,N)[0]:
+
+        if checkIncrease(F, N):
+
+            return True
+
+    else:
+
+        return False
 
 def method1(List1,List2,N):
 
@@ -18,11 +26,17 @@ def method1(List1,List2,N):
 
     if len(Final) == 2:
 
-        return True
+        First = List2[Final[0]]
+
+        List2[Final[0]] = List2[Final[1]]
+
+        List2[Final[1]] = First
+
+        return True, List2
     
     else:
 
-        return False
+        return False, List1
 
 def method2(List1,List2,N):
 
@@ -30,7 +44,7 @@ def method2(List1,List2,N):
 
     for i in range(N-1,0):
 
-        if List1[i] > List1[i-1]:
+        if List1[i] < List1[i-1]:
 
             count += 1
 
@@ -42,4 +56,18 @@ def method2(List1,List2,N):
 
         return True
 
-print(Football([9,5,3,7,1],5))
+def checkIncrease(List,N):
+
+    for i in range(N-1,0):
+
+        if List[i]> List[i-1]:
+
+            continue
+
+        else:
+
+            return False
+
+    return True
+
+print(Football([1,3,2],3))
