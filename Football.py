@@ -4,15 +4,28 @@ def Football(F,N):
     
     F.sort()
 
-    if method1(Check,F,N)[0]:
+    Final = []
 
-        if checkIncrease(F, N):
+    First = method1(F,Check,N)
+
+    Second = method2(F,Check,N)
+
+    if First[0]:
+
+        if checkIncrease(First[1],N):
 
             return True
 
-    else:
+        else: 
 
-        return False
+            return False 
+
+    elif Second[0]:
+
+        return True
+
+    return First, Second
+
 
 def method1(List1,List2,N):
 

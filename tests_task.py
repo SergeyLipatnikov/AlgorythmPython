@@ -2,6 +2,7 @@ import unittest
 from TankRush import TankRush
 from MaximumDiscount import MaximumDiscount
 from white_walkers import white_walkers
+from Football import Football
 
 class TestTasks(unittest.TestCase):
 
@@ -109,6 +110,26 @@ class TestTasks(unittest.TestCase):
     def test_StringE(self):
         String = "9===1===9===1===9"
         self.assertTrue(white_walkers(String))
+
+    def test_ArrayA(self):
+        Array = [1,3,2]
+        self.assertTrue(Football(Array,3))
+
+    def test_ArrayB(self):
+        Array = [3,2,1]
+        self.assertTrue(Football(Array,3))
+        
+    def test_ArrayC(self):
+        Array = [1,7,5,3,9]
+        self.assertTrue(Football(Array,5))
+
+    def test_ArrayD(self):
+        Array = [9,5,3,7,1]
+        self.assertTrue(Football(Array,5))
+
+    def test_ArrayE(self):
+        Array = [1,4,3,2,5]
+        self.assertTrue(Football(Array,5))
 
 if __name__ == '__main__':
     unittest.main()
