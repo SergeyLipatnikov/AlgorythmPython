@@ -4,11 +4,7 @@ def Football(F,N):
     
     F.sort()
 
-    Final = []
-
     First = method1(F,Check,N)
-
-    Second = method2(F,Check,N)
 
     if First[0]:
 
@@ -20,11 +16,21 @@ def Football(F,N):
 
             return False 
 
-    elif Second[0]:
+    Second = method2(Check,N)
 
-        return True
+    if Second[0]:
 
-    return First, Second
+        if checkIncrease(Second[1],N):
+
+            return True
+
+        else: 
+
+            return False
+
+    else:
+
+        return False
 
 
 def method1(List1,List2,N):
@@ -51,29 +57,50 @@ def method1(List1,List2,N):
 
         return False, List1
 
-def method2(List1,List2,N):
+def method2(List,N):
 
-    count = 0 
+    indexFirst = []
 
-    for i in range(N-1,0):
+    for i in range(N-1):
 
-        if List1[i] < List1[i-1]:
+        if i == 0:
 
-            count += 1
+            if List[i] > List[i+1]:
 
-    if count > 2:
+                indexFirst.append(i)
 
-        return False
+        elif List[i] > List[i+1]:
 
-    else:
+            indexFirst.append(i)
 
-        return True
+        else:
+
+            break
+            
+
+    indexFirst.append(indexFirst[len(indexFirst)-1]+1)
+
+    Substring = List[indexFirst[0]:indexFirst[len(indexFirst)-1]+1]
+
+    Substring.reverse()
+
+    for i in range(len(Substring)):
+
+        List[indexFirst[i]] = Substring[i]
+
+    if checkIncrease(List,N):
+
+        return True, List
+
+    else: 
+
+        return False, List
 
 def checkIncrease(List,N):
 
-    for i in range(N-1,0):
+    for i in range(N-1):
 
-        if List[i]> List[i-1]:
+        if List[i]< List[i+1]:
 
             continue
 
@@ -82,5 +109,3 @@ def checkIncrease(List,N):
             return False
 
     return True
-
-print(Football([1,3,2],3))

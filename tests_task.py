@@ -125,7 +125,7 @@ class TestTasks(unittest.TestCase):
 
     def test_ArrayD(self):
         Array = [9,5,3,7,1]
-        self.assertTrue(Football(Array,5))
+        self.assertFalse(Football(Array,5))
 
     def test_ArrayE(self):
         Array = [1,4,3,2,5]
