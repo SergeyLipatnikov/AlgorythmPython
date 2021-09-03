@@ -77,8 +77,13 @@ def method2(List,N):
 
             break
             
+    if len(indexFirst) == 0:
 
-    indexFirst.append(indexFirst[len(indexFirst)-1]+1)
+        return False, List
+    
+    else:
+
+        indexFirst.append(indexFirst[len(indexFirst)-1]+1)
 
     Substring = List[indexFirst[0]:indexFirst[len(indexFirst)-1]+1]
 
@@ -109,3 +114,5 @@ def checkIncrease(List,N):
             return False
 
     return True
+
+print(Football([1,2,3],3))
