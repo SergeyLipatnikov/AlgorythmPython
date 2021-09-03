@@ -114,5 +114,3 @@ def checkIncrease(List,N):
             return False
 
     return True
-
-print(Football([1,2,3],3))
