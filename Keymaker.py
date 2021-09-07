@@ -10,6 +10,8 @@ def Keymaker(k):
 
     Array = KeymasterWork(Array,k)
 
+    String = StringInterpritation(String,Array,k)
+
     return String, Array
 
 def KeymasterWork(Array, N):
@@ -24,7 +26,7 @@ def KeymasterWork(Array, N):
 
             Temp = i
 
-            Array = Iteration(Array,Temp)
+            Array = Iteration(Array,Temp,N)
 
     return Array
 
@@ -36,16 +38,23 @@ def FirstIteration(Array,N):
 
     return Array
 
-def Iteration(Array,i):
+def Iteration(Array,i,N):
 
-    print(Array[i::i+1])
+    for k in range(i,N,i+1):
 
-    # Array[i::i+1] = not(Array[i::i+1])
+        Array[k] = not(Array[k])
 
-    # return Array
+    return Array
 
-print(Keymaker(6))
+def StringInterpritation(String,Array, N):
 
-# Array = [0,0,0,1]
+    for i in range(N):
 
-# print(Array[1::2])
+        if Array[i]:
+
+            String += '1'
+        else:
+
+            String += '0'
+
+    return String
