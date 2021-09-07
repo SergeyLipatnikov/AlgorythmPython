@@ -12,7 +12,7 @@ def Keymaker(k):
 
     String = StringInterpritation(String,Array,k)
 
-    return String, Array
+    return String
 
 def KeymasterWork(Array, N):
 
