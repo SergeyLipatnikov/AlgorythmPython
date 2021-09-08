@@ -12,7 +12,9 @@ def Keymaker(k):
 
     String = StringInterpritation(String,Array,k)
 
-    return String
+    Check = Delitel(k)
+
+    return String, Check
 
 def KeymasterWork(Array, N):
 
@@ -58,3 +60,20 @@ def StringInterpritation(String,Array, N):
             String += '0'
 
     return String
+
+def Delitel(k):
+
+    Array = []
+
+    for i in range(k - 1, 1, -1):
+
+        if (k % i == 0):
+
+            Array.append(i)
+
+    Len = len(Array)
+
+    return Array,Len
+
+
+print(Keymaker(126))
